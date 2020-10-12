@@ -1,20 +1,28 @@
+
 let today = new Date();
 
 exports.getDate = () => {
-  var options = {
+  let options = {
     day: 'numeric',
     weekday: 'long',
     year: 'numeric',
-    month: 'long',
+    month: 'long'
   };
+  
+  return today.toLocaleDateString('en-US', options);
+};
 
-  return today.toLocaleDateString('en-UK', options);
+exports.getFullYear = () => {
+  let options = { 
+    year: 'numeric'
+  };
+  
+  return today.toLocaleDateString('en-US', options);
 }
 
-exports.getDay = () => {
-  var options = {
-    weekday: 'long',
-  };
+exports.getTime = () => {
+  let options = {
 
-  return today.toLocaleDateString('en-UK', options);
+  };
+  return today.toLocaleDateString('en-US', options);
 }

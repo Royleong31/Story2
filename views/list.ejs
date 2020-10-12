@@ -10,7 +10,7 @@
 
 <body>
   <div class="box" id='heading'>
-    <h1> <%= kindOfDay %> To-Do List</h1>
+    <h1> <%= kindOfDay %> Tasks</h1>
   </div>
   
   <div class="box">
@@ -23,7 +23,7 @@
     
     <form class='item' action="/" method="post">
       <input type="text" name="newTask" placeholder="New Task" autocomplete="off" autofocus>
-      <button type="submit">+</button>
+      <button type="submit" name='list' value= <%= kindOfDay %> >+</button>
     </form>
   </div>
     

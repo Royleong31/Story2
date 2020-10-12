@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const date = require(__dirname + '/date.js');
 const app = express();
 app.use(bodyParser.urlencoded({
   extended: true
@@ -8,20 +9,10 @@ app.set('view engine', 'ejs'); //Use this whenver u use ejs
 app.use(express.static('public')); // Used when you want to add local stylesheets
 var items = ['wash clothes', 'do laundry'];
 let workItems = [];
+let day = date.getDate();
 
 app.get('/', function(req, res) {
-  let today = new Date();
-  let todayDay = today.getDay()
-  let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-  var options = {
-    day: 'numeric',
-    weekday: 'long',
-    year: 'numeric',
-    month: 'long',
-  };
-  
-  var day = today.toLocaleDateString('en-UK', options);
   res.render('list', {
     kindOfDay: day,
     newListItem: items
